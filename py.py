@@ -52,4 +52,4 @@ GitHub使用
 0.安装git
 1自己账户申请，加入到对应的组里面
 2.fork对应项目到自己的git里面
-3.通过 git clone  https://github.com/ttxgoto/IDC.git  拉取项目到本地环境中  （github有两种同步方式，http和ssh
+3.通过 git clone  https://github.com/ttxgoto/IDC.git  拉取项目到本地环境中  （github有两种同步方式，http和ssh)
