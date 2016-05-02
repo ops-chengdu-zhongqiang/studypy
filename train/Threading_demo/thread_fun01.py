@@ -16,7 +16,6 @@ def myfunction(arg):
         print item
         sleep(1)
 
-
 print "before"
 t1 = Thread(target=myfunction,args=('hello',))
 print t1.getName() #Thread-1
