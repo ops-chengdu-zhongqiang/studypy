@@ -30,9 +30,3 @@ console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
 
 logging.warning('log info')
-
-
-
-
-
-
