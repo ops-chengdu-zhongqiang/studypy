@@ -54,7 +54,8 @@ def Get_file_path(folder,filetype):
             print folder+i
     return filelist
 
-#Get_file_path('/Users/study/week02/basic_py/','py')
+#print Get_file_path('/Users/study/week02/basic_py/','py')
+
 
 
 #改造: list_my_dir函数-------->用列表解析改造上面的函数,打印可以略去

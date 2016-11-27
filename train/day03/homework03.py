@@ -16,6 +16,7 @@ from flask import Flask
 import flask_admin as admin
 from flask_admin.contrib.mongoengine import ModelView
 from atexit import register
+from bsddb.test.test_all import verbose
 
 """
 class Host(Document):
@@ -46,10 +47,10 @@ if __name__ =='__main__':
 
 
 class User(Document):
-    name = StringField()
-    email = StringField()
-    password = StringField()
-    register_time = DateTimeField(default=datetime.datetime.now())
+    name = StringField(verbose_name="用户名")
+    email = StringField(verbose_name="邮箱")
+    password = StringField(verbose_name="密码")
+    register_time = DateTimeField(default=datetime.datetime.now(),auto_now=True,verbose_name="注册时间")
     
     meta = {
             'collection':'User',
@@ -73,8 +74,12 @@ class User(Document):
 #     
 
 class Hostinfo(Document):
+    """
+    主机信息
+    """
     
-    name = StringField()
+    
+    name = StringField(verbose_name="名称")
     ip = StringField()
     internal_ip = StringField()
     cpu = StringField()

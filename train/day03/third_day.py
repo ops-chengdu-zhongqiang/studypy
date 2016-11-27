@@ -11,8 +11,10 @@ Describe:
 from __future__ import unicode_literals,print_function
 from mongoengine import  Document,StringField,DateTimeField
 from mongoengine import  connect
+from mongoengine import ReferenceField
 import datetime
 from homework03 import *
+from mongoengine.fields import ListField
 
 HOST = '192.168.6.228'
 
@@ -26,6 +28,37 @@ class Host(Document):
     meta = {
             'collection':'host',
         }
+    
+    def __unicode__(self):
+        return self.name
+
+
+class OPsAdmin(Document):
+    """
+    管理信息
+    """
+    admin = ReferenceField(User)
+    #hosts = ReferenceField(Hostinfo)
+    hosts = ListField(ReferenceField(Hostinfo))
+    descrition = StringField()
+    service = StringField()
+     
+    meta = {
+             "collection":'ops_admin',      #表的名称
+    }
+
+
+
+
+class HostView(ModelView): #view展示
+    
+    column_list = ['ip','cpu']  #展示行定义
+    
+    
+
+
+
+
     
 # data = Host(name="ttxs2")
 # data.save()
@@ -48,6 +81,7 @@ if __name__ =='__main__':
     admin.add_view(ModelView(Host))         #添加视图
     admin.add_view(ModelView(User))
     admin.add_view(ModelView(Hostinfo))
+    admin.add_view(ModelView(OPsAdmin))
     app.run('0.0.0.0', 8080, debug=True) 
 
 

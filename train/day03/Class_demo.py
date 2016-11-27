@@ -13,9 +13,9 @@ import datetime
 
 class User(object):
     
-    regiter_time = datetime.datetime(2014,12,10)
-    
-    def __init__(self,username=""):
+#     regiter_time = datetime.datetime(2014,12,10)
+#     username = "xxts"
+    def __init__(self,username="ttxs"):
         self.username = username
         
     def __str__(self):
