@@ -13,7 +13,7 @@ from fabric.colors import *
 from fabric.operations import prompt
 
 env.hosts=['192.168.0.192','192.168.0.200']
-env.password='POIlkj,mn'
+env.password='pwd'
 env.user='root'
 #env.roledefs={'web1':['192.168.0.192'],'web2':['192.168.0.200']}
 
