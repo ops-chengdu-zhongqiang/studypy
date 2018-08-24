@@ -1,0 +1,20 @@
+2017-06-26 10:41:52,454 - __main__ - INFO - Function: add
+2017-06-26 10:41:52,454 - example - CRITICAL - Function: spam
+2017-06-26 10:43:39,104 - __main__ - INFO - Function: add
+2017-06-26 10:43:39,107 - example - CRITICAL - Function: spam
+2017-06-26 10:48:13,828 - __main__ - INFO - Function: add , runtime: 0:00:00.000140
+2017-06-26 10:48:13,831 - example - CRITICAL - Function: spam , runtime: 0:00:00.003408
+2017-06-26 10:49:27,196 - __main__ - INFO - Function: add , runtime: 0.000288963317871
+2017-06-26 10:49:27,199 - example - CRITICAL - Function: spam , runtime: 0.00408697128296
+2017-06-26 10:49:59,295 - __main__ - INFO - Function: add , runtime: 0
+2017-06-26 10:49:59,298 - example - CRITICAL - Function: spam , runtime: 0
+2017-06-26 10:50:18,650 - __main__ - INFO - Function: add , runtime: 0:00:00.000153
+2017-06-26 10:50:18,653 - example - CRITICAL - Function: spam , runtime: 0:00:00.002688
+2017-06-26 10:50:56,851 - __main__ - INFO - Function: add , runtime: 0:00:00.000027
+2017-06-26 10:50:56,853 - example - CRITICAL - Function: spam , runtime: 0:00:00.000024
+2017-06-26 10:51:37,654 - __main__ - INFO - Function: add , runtime: 0:00:01.003646
+2017-06-26 10:51:37,656 - example - CRITICAL - Function: spam , runtime: 0:00:00.000016
+2017-06-26 10:51:59,115 - __main__ - INFO - Function: add , runtime: 0:00:05.005422
+2017-06-26 10:51:59,118 - example - CRITICAL - Function: spam , runtime: 0:00:00.000015
+2017-06-26 10:52:53,625 - __main__ - INFO - Function: add , runtime: 0:00:05.004257
+2017-06-26 10:52:53,628 - example - CRITICAL - Function: spam , runtime: 0:00:00.000018
