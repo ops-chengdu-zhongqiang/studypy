@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding:utf-8
+# coding:utf-8
 '''
 Created on 2016年5月1日
 
@@ -39,29 +39,37 @@ s1.Func()
 s1.run()
 """
 
+
 class A(object):
     def __init__(self):
         print "A class"
+
     def run(self):
         print "THis is A run Function"
+
 
 class B(A):
     def __init__(self):
         print "B class"
-        A.__init__(self)    #新式类继承init函数，方法一
-#         super(B, self).__init__() #新式类继承init函数，方法二
+        A.__init__(self)  # 新式类继承init函数，方法一
+
+
+# super(B, self).__init__() #新式类继承init函数，方法二
 #     def run(self):
 #         print "This is B run Function"
 
 class C(A):
     def __init__(self):
         print "C class"
+
     def run(self):
         print "This is C run Function"
 
-class D(B,C):
+
+class D(B, C):
     def __init__(self):
         print "D class"
+
 
 d = D()
 d.run()
@@ -76,28 +84,3 @@ THis is A run Function
 D class
 This is C run Function
 """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

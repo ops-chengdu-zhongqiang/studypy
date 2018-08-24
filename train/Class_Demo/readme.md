@@ -38,6 +38,10 @@ class Person(object):
     def run1():
         print "静态方法"
 
+	@classmethod
+    def run2(cls):
+        print "类方法"
+
     @property    #转换为特性，直接以属性的形式访问
     def Bar(self):
         print self.Name
@@ -53,6 +57,8 @@ person1.run()
 print Person.name
 #访问静态方法
 Person.run1()
+#调用类方法
+Person.run2()
 
 #property的访问形式,直接以属性的形式访问
 person1.Bar
@@ -61,8 +67,15 @@ person1.Bar
 ###装饰器
 ---
 @staticmethod ：类中的静态方法设置
+@classmethod：类方法设置
 @property ：将类中的方法转换为特性，直接以属性的形式访问
 
+@staticmethod和@classmethod的作用与区别
+```
+1.@staticmethod和@classmethod都可以直接类名.方法名(),实例名.方法名()调用
+2.@staticmethod不需要表示自身对象的self和自身类的cls参数，和使用函数一样
+3.@classmethod也不需要self参数，但第一个参数需要是表示自身类的cls参数
+```
 
 python类的定义：
 

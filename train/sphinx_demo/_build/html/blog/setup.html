@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>setup &mdash; demo 0.0.1 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="demo 0.0.1 文档" href="../index.html"/>
+        <link rel="prev" title="Changelog" href="../changelog.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> demo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../test.html">This is a Title</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#">说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">简单实例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">常用字段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">打包命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">包验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypi">分发到PyPI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">参考链接</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">demo</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/blog/setup.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setup">
+<span id="setup"></span><h1>setup<a class="headerlink" href="#setup" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id1"></span><h2>说明<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>将日常常用模块打包成tar.gz/egg/wheel包，方便其他工程复用；主要通过setuptools这个模块完成打包工作</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>简单实例<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>目录结构：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>├── README      # readme信息
+├── package_demo    # 包名
+│   ├── __init__.py
+│   └── now_time.py # 功能模块
+└── setup.py        # setup文件
+</pre></div>
+</div>
+<p>now_time.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1">#coding: utf_8</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+ 
+<span class="k">def</span> <span class="nf">now</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+ 
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>setup.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1">#coding: utf_8</span>
+ 
+<span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+ 
+<span class="n">here</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+ 
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">here</span><span class="p">,</span> <span class="s1">&#39;README&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">long_description</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+ 
+<span class="n">install_requires</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;gitchangelog&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+ 
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Package_demo&#39;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;setup package demo&#39;</span><span class="p">,</span>
+    <span class="n">long_description</span><span class="o">=</span><span class="n">long_description</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://github.com/&#39;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s1">&#39;ttxsgoto&#39;</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;359450323@qq.com&#39;</span><span class="p">,</span>
+    <span class="n">license</span><span class="o">=</span><span class="s1">&#39;MIT&#39;</span><span class="p">,</span>
+    <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;Development Status :: 4 - Beta&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Intended Audience :: Developers&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Topic :: Software Development :: Build Tools&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;License :: OSI Approved :: MIT License&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Programming Language :: Python&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Programming Language :: Python :: 2.7&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">keywords</span><span class="o">=</span><span class="s1">&#39;Package_demo&#39;</span><span class="p">,</span>
+    <span class="c1"># packages=find_packages(</span>
+    <span class="c1">#     where=&#39;.&#39;,</span>
+    <span class="c1">#     exclude=[&#39;contrib&#39;, &#39;docs&#39;, &#39;tests&#39;], # 排除某些包</span>
+    <span class="c1"># ),</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;package_demo&#39;</span><span class="p">],</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="n">install_requires</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>常用字段<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>name 项目名称</li>
+<li>version 项目当前的版本，1.0.0表示1.0.0版，目前还处于开发阶段</li>
+<li>description 包的简单描述</li>
+<li>long_description=long_description, 较长的描述</li>
+<li>url 为项目访问地址</li>
+<li>author 为项目开发人员</li>
+<li>author_email 为项目开发人员邮件</li>
+<li>license 为本项目遵循的授权许可</li>
+<li>classifiers 有很多设置，具体内容可以参考官方文档, https://pypi.python.org/pypi?%3Aaction=list_classifiers</li>
+<li>keywords 是本项目的关键词，理解为标签</li>
+<li>packages 指定包,如果很多可以使用find_packages &amp; exclude</li>
+<li>install_requires 依赖包安装</li>
+<li>extras_require 额外的依赖包</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>打包命令<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">check</span>  <span class="c1"># 检查</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">sdist</span>  <span class="c1"># 打包为 .tar.gz</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">bdist_egg</span>  <span class="c1">#  创建 Eggs包</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">bdist_wheel</span>  <span class="c1"># 创建 Wheel包</span>
+<span class="c1"># 生成的文件均位于 dist 目录下</span>
+</pre></div>
+</div>
+<p>打包后的目录结构</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>python setup.py sdist
+ 
+├── Package_demo.egg-info
+│   ├── PKG-INFO
+│   ├── SOURCES.txt
+│   ├── dependency_links.txt
+│   ├── requires.txt
+│   └── top_level.txt
+├── README
+├── dist
+│   └── Package_demo-1.0.0.tar.gz
+├── package_demo
+│   ├── __init__.py
+│   └── now_time.py
+└── setup.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>包验证<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">Package_demo</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="mf">0.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">package_demo</span> <span class="kn">import</span> <span class="n">now_time</span>
+ 
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">now_time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">278942</span><span class="p">)</span>
+ 
+</pre></div>
+</div>
+</div>
+<div class="section" id="pypi">
+<span id="pypi"></span><h3>分发到PyPI<a class="headerlink" href="#pypi" title="永久链接至标题">¶</a></h3>
+<p>首先到 PyPI 注册一个帐号, 在邮箱内确认
+之后在目录新建一个 .pypirc 文件, 写入下面内容(注意填入自己的帐号密码):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">pypirc</span><span class="p">]</span>
+<span class="n">servers</span> <span class="o">=</span> <span class="n">pypi</span>
+<span class="p">[</span><span class="n">server</span><span class="o">-</span><span class="n">login</span><span class="p">]</span>
+<span class="n">username</span><span class="p">:</span><span class="n">username</span>
+<span class="n">password</span><span class="p">:</span><span class="n">password</span>
+</pre></div>
+</div>
+<p>上传</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">register</span>  <span class="c1"># 将包注册到 PyPI</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">register</span> <span class="n">sdist</span> <span class="n">upload</span>  <span class="c1"># 上传</span>
+</pre></div>
+</div>
+<p>登录验证查看是否上传成功</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>https://packaging.python.org/tutorials/distributing-packages/#name</li>
+<li>https://github.com/pypa/sampleproject/blob/master/setup.py</li>
+<li>https://github.com/celery/celery/blob/master/setup.py</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../changelog.html" class="btn btn-neutral" title="Changelog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, zhongqiang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

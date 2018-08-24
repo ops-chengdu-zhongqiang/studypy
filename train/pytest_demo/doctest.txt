@@ -1,0 +1,9 @@
+>>> from doctest_demo import other_mult
+>>> other_mult(2,3)
+6
+>>> other_mult('ab',3)
+'ababab'
+
+
+
+

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding:utf-8
+# coding:utf-8
 '''
 Created on 2016年5月1日
 
@@ -31,29 +31,16 @@ f = Foo()
 f.Func()
 """
 
-#自定义异常，手动触发异常
+
+# 自定义异常，手动触发异常
 class MyException(Exception):
-    
-    def __init__(self,msg):
+    def __init__(self, msg):
         self.error = msg
-    
-    def __str__(self, *args, **kwargs): #
+
+    def __str__(self, *args, **kwargs):  #
         return self.error
+
 
 obj = MyException('自定义错误信息')
 print obj
 raise MyException('自定义错误信息')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
