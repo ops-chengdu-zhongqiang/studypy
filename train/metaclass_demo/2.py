@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -7,15 +7,17 @@ Created on  17/4/18
 
 Describe: 
 '''
+
+
 def upper_attr(future_class_name, future_class_parents, future_class_attr):
     '''
     返回一个类对象,将属性都转为大写形式
     '''
     # 选择所有不以'__'开头的属性
-    print '----',future_class_attr.items()
+    print '----', future_class_attr.items()
     attrs = ((name, value) for name, value in future_class_attr.items() if not name.startswith('__'))
     # 将它们转为大写形式
-    print 'xxxx',attrs
+    print 'xxxx', attrs
     uppercase_attr = dict((name.upper(), value) for name, value in attrs)
     # 通过'type'来做类对象的创建
     return type(future_class_name, future_class_parents, uppercase_attr)
@@ -26,10 +28,12 @@ class Foo(object):
     __metaclass__ = upper_attr
     bar = 'ttxsgoto'
 
+
 print '------------'
 print hasattr(Foo, 'bar')
 print hasattr(Foo, 'BAR')
 print Foo.BAR
+
 
 #########class type#########
 class UpperAttrMetaClass(type):
@@ -52,20 +56,15 @@ class UpperAttrMetaClass(type):
         uppercase_attr = dict((name.upper(), value) for name, value in attrs)
         return super(UpperAttrMetaClass, cls).__new__(cls, name, bases, uppercase_attr)
 
+
 class Foo(object):
     # 作用到这个模块的所有类
     __metaclass__ = UpperAttrMetaClass
     bar = 'ttxsgoto'
 
+
 print '==========='
 print hasattr(Foo, 'bar')
 print hasattr(Foo, 'BAR')
 print Foo.BAR
-print getattr(Foo,'BAR','A')
-
-
-
-
-
-
-
+print getattr(Foo, 'BAR', 'A')

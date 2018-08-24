@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf-8
+# coding: utf-8
 
 '''
 Created on 2016年9月26日
@@ -16,25 +16,23 @@ import logging
 #  记录日志信息
 logname = 'log.log'
 logging.basicConfig(
-    level = logging.INFO,	#定义记录大于或等于日志级别
+    level=logging.INFO,  # 定义记录大于或等于日志级别
     format='[%(levelname)s] [%(asctime)s] --- %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S',
     filename=logname,
-    filemode='a',                
-    )
+    filemode='a',
+)
 
 logging.warning("log")
 
-#将日志输出到文件，同时打印匹配的级别到屏幕上
+# 将日志输出到文件，同时打印匹配的级别到屏幕上
 console = logging.StreamHandler()
-console.setLevel(logging.INFO)	#定义需要显示大于或等于日志级别
+console.setLevel(logging.INFO)  # 定义需要显示大于或等于日志级别
 formatter = logging.Formatter('[%(levelname)s] [%(asctime)s] ------ %(message)s')
 console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
 
 logging.warning('log info111')
-
-
 
 logging.debug('debug  msg')
 logging.info('info msg')
@@ -50,24 +48,10 @@ logging.critical('critical msg')
 - Formatter格式化器: 指明最终输出中日志记录的布局
 """
 
-logger = logging.getLogger('logger_name')   # 创建logger记录器,返回一个logger实例，如果没有指定name，返回root logger,
-                                            # 只要name相同，返回的logger实例都是同一个而且只有一个，即name和logger实例是一一对应的
+logger = logging.getLogger('logger_name')  # 创建logger记录器,返回一个logger实例，如果没有指定name，返回root logger,
+# 只要name相同，返回的logger实例都是同一个而且只有一个，即name和logger实例是一一对应的
 
 logger.setLevel(logging.DEBUG)  # 设置logger的level
-logger.addHandler()             # 加handler来帮它处理日志,StreamHandler:输出到控制台,FileHandler:输出到文件
+logger.addHandler()  # 加handler来帮它处理日志,StreamHandler:输出到控制台,FileHandler:输出到文件
 
-logging.basicConfig('**kwargs') # 用来配置root logger， 为root logger创建一个StreamHandle
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+logging.basicConfig('**kwargs')  # 用来配置root logger， 为root logger创建一个StreamHandle

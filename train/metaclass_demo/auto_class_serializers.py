@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -12,6 +12,7 @@ Describe:
 import os
 
 from django.core.wsgi import get_wsgi_application
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rest_framework_api.settings')
 application = get_wsgi_application()
 
@@ -21,30 +22,32 @@ from rest_framework.renderers import JSONRenderer
 
 
 class Comment(object):
-
     def __init__(self, **kwargs):
-        for k,v in kwargs.items():
+        for k, v in kwargs.items():
             setattr(self, k, v)
+
 
 words = {
     "email": "zhongqiang@163.com",
     "content": "test",
     "datetime": datetime.now(),
-    "aaa":"1",
-    "bbb":"2",
-    "ccc":"3",
+    "aaa": "1",
+    "bbb": "2",
+    "ccc": "3",
 }
 
 works_value = {
     "email": "email",
     "content": "string",
     "datetime": "datetime",
-    "aaa":"string",
-    "bbb":"string",
-    "ccc":"string",
+    "aaa": "string",
+    "bbb": "string",
+    "ccc": "string",
 }
 
 comment = Comment(**words)
+
+
 # print comment.email, comment.content, comment.datetime, comment.a, comment.b, comment.c
 
 class CommentSerializer(serializers.Serializer):
@@ -59,6 +62,7 @@ class CommentSerializer(serializers.Serializer):
     b = serializers.CharField(max_length=100)
     c = serializers.CharField(max_length=100)
 
+
 # serializer = CommentSerializer(comment)
 
 TYPE_DICT = {
@@ -69,18 +73,23 @@ TYPE_DICT = {
     'email': serializers.EmailField()
 }
 
+
 ############# 函数实现方式 begin ###############
 def get_type(type):
     return TYPE_DICT.get(type)
 
+
 def set_serializer(**kwargs):
-    return {k:get_type(v) for k,v in kwargs.items()}
+    return {k: get_type(v) for k, v in kwargs.items()}
+
 
 def get_modelserializer(model):
-    return str(model)+"Serializer"
+    return str(model) + "Serializer"
+
 
 def get_serializer(modelserializer, **kwargs):
-    return type(modelserializer,(serializers.Serializer,), kwargs)
+    return type(modelserializer, (serializers.Serializer,), kwargs)
+
 
 # dd = set_serializer(**works_value)
 # ee = get_serializer(modelserializer=get_modelserializer('Comment'), **dd)
@@ -99,10 +108,10 @@ class AutoSerializer(object):
         self.fields = fields
 
     def get_field(self):
-        return {k:TYPE_DICT.get(v) for k,v in self.fields.items()}
+        return {k: TYPE_DICT.get(v) for k, v in self.fields.items()}
 
     def get_model(self):
-        return str(self.model)+"Serializer"
+        return str(self.model) + "Serializer"
 
     def get_serializer(self):
         """
@@ -111,12 +120,12 @@ class AutoSerializer(object):
         # from rest_framework import serializers
         print '---------get_model-----', self.get_model()
         print '---------get_field-----', self.get_field()
-        return type(self.get_model(), (serializers.Serializer, ), self.get_field())
+        return type(self.get_model(), (serializers.Serializer,), self.get_field())
+
 
 commentserializer = AutoSerializer(model=Comment.__name__, fields=works_value)
-print 'commentserializer-----',commentserializer
+print 'commentserializer-----', commentserializer
 serializer = commentserializer.get_serializer()(comment)
-
 
 print 'serializer-------', serializer
 data = serializer.data
@@ -127,5 +136,3 @@ print data
 # jsons = JSONRenderer().render(serializer.data)
 # print JSONRenderer().render(serializer.data)
 # print type(jsons)
-
-

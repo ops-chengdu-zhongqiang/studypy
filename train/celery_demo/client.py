@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -14,12 +14,9 @@ import time
 from celery_app import task1
 from celery_app import task2
 
-print "异步执行开始:",time.ctime()
-task1.add.apply_async(args=(2,8), countdown=5) # 5 秒后执行任务
-task2.multiply.delay(3,7)
+print "异步执行开始:", time.ctime()
+task1.add.apply_async(args=(2, 8), countdown=5)  # 5 秒后执行任务
+task2.multiply.delay(3, 7)
 
 print "end!!!!!"
 print time.ctime()
-
-
-

@@ -1,22 +1,24 @@
 #!/usr/bin/env python
-#coding:utf-8
+# coding:utf-8
 """
 contextlib中的contextmanager作为装饰器来提供一种针对函数级别的上下文管理机制.
 """
 import contextlib
 
+
 @contextlib.contextmanager
 def make_context():
-	print "entering"
-	try:
-		yield {}
-	finally:
-		print "exiting"
+    print "entering"
+    try:
+        yield {}
+    finally:
+        print "exiting"
+
 
 with make_context():
-	print "inside with statement:", 'xxdsafds'
+    print "inside with statement:", 'xxdsafds'
 
-#执行结果：
+# 执行结果：
 '''
 entering
 inside with statement: {}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -10,17 +10,21 @@ Describe: 最简单的装饰器
 
 from functools import wraps
 
+
 def auth(func):
-    #@wraps(func)
+    # @wraps(func)
     def inner():
         print "before"
         func()
         print "after"
+
     return inner
 
-@auth   #@auth ==> f1 = auth(f1) ==>f1() 相当于执行inner函数，func为f1函数
+
+@auth  # @auth ==> f1 = auth(f1) ==>f1() 相当于执行inner函数，func为f1函数
 def f1():
     print "This is f1 function"
+
 
 f1()
 
@@ -71,5 +75,6 @@ def w2(func):
 @w1
 def foo():
     print "foo"
+
 
 foo()

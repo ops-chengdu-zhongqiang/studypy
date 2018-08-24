@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-#coding:utf-8
+# coding:utf-8
 
 class WithinContext(object):
-    def __init__(self,context):
-        print "WithinContext.__init__(%s) " %context
+    def __init__(self, context):
+        print "WithinContext.__init__(%s) " % context
 
     def do_something(self):
         print "WithinContext.do_something()"
@@ -23,19 +23,20 @@ class Context(object):
         print "Context.__enter__()"
         return WithinContext(self)
 
-    def __exit__(self,exc_type,exc_val,exc_tb):
+    def __exit__(self, exc_type, exc_val, exc_tb):
         """
         在主体代码执行后执行
         """
         print "Context.__exit__()"
 
-with Context() as c :
+
+with Context() as c:
     """
     as后面的变量是在__enter__函数中返回的
     """
     c.do_something()
 
-#执行结果：
+# 执行结果：
 '''
 Context.__init__()
 Context.__enter__()
@@ -44,14 +45,3 @@ WithinContext.do_something()
 Context.__exit__()
 WithinContext.__del__
 '''
-
-
-
-
-
-
-
-
-
-
-

@@ -60,40 +60,40 @@ parser = argparse.ArgumentParser(
     # usage='%(prog)s [options] 用法说明',
     description='A foo that bars 描述信息',
     epilog="And that's how you'd foo a bar 附加其他信息",
-    add_help=True,   # help信息, 默认添加
-    version='%(prog)s 1.1.0'    # 添加版本信息,也可以在后面参数定义
+    add_help=True,  # help信息, 默认添加
+    version='%(prog)s 1.1.0'  # 添加版本信息,也可以在后面参数定义
 
 )
 
 parser.add_argument('-s', action='store', dest='simple_value',  # args.simple_value对应的引用值
-        # nargs=3,     # 指定参数为3个数
-        nargs='+',      # 至少一个参数
-        help='Store a simple value',)
+                    # nargs=3,     # 指定参数为3个数
+                    nargs='+',  # 至少一个参数
+                    help='Store a simple value', )
 
 parser.add_argument('-c', action='store_const', dest='constant_value',
-        const='value-to-store', # 这里使用-c参数,对应的值为value-to-store
-        default='store_const', # 默认值
-        help='Store a constant value')
+                    const='value-to-store',  # 这里使用-c参数,对应的值为value-to-store
+                    default='store_const',  # 默认值
+                    help='Store a constant value')
 
 parser.add_argument('-t', action='store_true', default=True,
-        dest='boolean_switch',
-        help='Set a switch to true')
+                    dest='boolean_switch',
+                    help='Set a switch to true')
 
 parser.add_argument('-f', action='store_false', default=False,
-        dest='boolean_switch',
-        help='Set a switch to false')
+                    dest='boolean_switch',
+                    help='Set a switch to false')
 
-parser.add_argument('-a', '--alist', action='append', dest='collection',   # append 将值保存到list中
-        default=[],
-        help='Add repeated values to a list')
+parser.add_argument('-a', '--alist', action='append', dest='collection',  # append 将值保存到list中
+                    default=[],
+                    help='Add repeated values to a list')
 
-parser.add_argument('-A', action='append_const', dest='const_collection', # 使用参数将const定义的保存到list中
-        const='value-1-to-append',
-        default=[],
-        help='Add different values to list')
+parser.add_argument('-A', action='append_const', dest='const_collection',  # 使用参数将const定义的保存到list中
+                    const='value-1-to-append',
+                    default=[],
+                    help='Add different values to list')
 parser.add_argument('-B', action='append_const', dest='const_collection',
-        const='value-2-to-append',
-        help='Add different values to list')
+                    const='value-2-to-append',
+                    help='Add different values to list')
 
 # parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
@@ -103,4 +103,3 @@ print 'constant_value   =', results.constant_value
 print 'boolean_switch   =', results.boolean_switch
 print 'collection       =', results.collection
 print 'const_collection =', results.const_collection
-

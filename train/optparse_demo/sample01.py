@@ -36,6 +36,7 @@ Describe:
 from __future__ import unicode_literals
 from optparse import OptionParser
 
+
 def main():
     usage = "usage: %prog [options] arg"
     parser = OptionParser(usage)
@@ -45,13 +46,12 @@ def main():
                       action="store_true", dest="verbose")
     parser.add_option("-q", "--quiet",
                       action="store_false", dest="verbose")
-    (options, args) = parser.parse_args()   # 解析程序的命令行
+    (options, args) = parser.parse_args()  # 解析程序的命令行
     if len(args) != 1:
         parser.error("incorrect number of arguments")
     if options.verbose:
         print "reading %s..." % options.filename
 
+
 if __name__ == "__main__":
     main()
-
-

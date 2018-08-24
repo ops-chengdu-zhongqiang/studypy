@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 

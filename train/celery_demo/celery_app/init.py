@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -12,8 +12,6 @@ cd /Users/study/studypy/train/celery_demo && celery worker -A celery_app.init --
 '''
 from celery import Celery
 
-ttxsgoto = Celery("ttxsgoto")   #创建一个celery任务
+ttxsgoto = Celery("ttxsgoto")  # 创建一个celery任务
 
-ttxsgoto.config_from_object('celery_app.celeryconfig')  #将配置导入到celery对象中
-
-
+ttxsgoto.config_from_object('celery_app.celeryconfig')  # 将配置导入到celery对象中

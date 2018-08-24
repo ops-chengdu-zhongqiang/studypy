@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -13,13 +13,12 @@ Describe:
 
 from openpyxl import load_workbook, Workbook
 
-
 wb = load_workbook('./hello.xlsx')
-sheets = wb.get_sheet_names()   # 获取表格名称列表
+sheets = wb.get_sheet_names()  # 获取表格名称列表
 print sheets[0]
 ws = wb.get_sheet_by_name('Sheet1')
-print ws.rows   # 行
-print ws.columns    # 列
+print ws.rows  # 行
+print ws.columns  # 列
 content = []
 for row in ws.rows:
     line = [col.value for col in row]
@@ -27,11 +26,3 @@ for row in ws.rows:
     content.append(line)
 
 # print content
-
-
-
-
-
-
-
-

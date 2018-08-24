@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf-8
+# coding: utf-8
 
 '''
 Created on 2016年9月25日
@@ -14,22 +14,26 @@ import time
 import logging
 
 logging.basicConfig(
-    level = logging.DEBUG,
-    format='[%(levelname)s] (%(threadName)-10s) %(message)s',                
-    )
+    level=logging.DEBUG,
+    format='[%(levelname)s] (%(threadName)-10s) %(message)s',
+)
+
 
 def deamon():
     logging.debug("Starting")
     time.sleep(2)
     logging.debug("Exiting")
+
+
 def non_daemon():
     logging.debug("Starting")
     logging.debug("Exiting")
 
-d = threading.Thread(name='deamon',target=deamon)
+
+d = threading.Thread(name='deamon', target=deamon)
 d.setDaemon(True)
 
-w = threading.Thread(name='non_daemon',target=non_daemon)
+w = threading.Thread(name='non_daemon', target=non_daemon)
 
 d.start()
 w.start()

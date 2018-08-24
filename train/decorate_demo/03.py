@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -9,19 +9,23 @@ Describe: 有返回值
 
 '''
 
+
 def auth_arg(func):
     def inner(*args, **kwargs):
         print "before"
-        ret1,ret2 = func(*args, **kwargs) #通过ret来接收func函数的返回值
+        ret1, ret2 = func(*args, **kwargs)  # 通过ret来接收func函数的返回值
         print "after"
-        return ret1, ret2  #返回func函数的返回值
+        return ret1, ret2  # 返回func函数的返回值
+
     return inner
+
 
 @auth_arg
 def f3(*args, **kwargs):
-    return  args,kwargs
+    return args, kwargs
 
-ret1, ret2 = f3('abc',1,'xxx',**{'a':1})
+
+ret1, ret2 = f3('abc', 1, 'xxx', **{'a': 1})
 print '============'
 print ret1, ret2
 
@@ -53,4 +57,3 @@ print ret1, ret2
 # dict1['ttxs'] = 'goto'
 #
 # f3(a, **dict1)
-

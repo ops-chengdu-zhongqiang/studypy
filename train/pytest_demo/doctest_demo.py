@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -14,6 +14,7 @@ doctest 的两种方式:
 '''
 import doctest
 
+
 def mult(a, b):
     """
     >>> mult(2,3)
@@ -21,24 +22,15 @@ def mult(a, b):
     >>> mult('ab',3)
     'ababab'
     """
-    return a*b
+    return a * b
 
 
-def other_mult(a,b):
-    return a*b
+def other_mult(a, b):
+    return a * b
 
 
 if __name__ == '__main__':
     # import doctest
-    #doctest.testmod(verbose=True) #verbose 参数用于控制是否输出详细信息,默认为False
+    # doctest.testmod(verbose=True) #verbose 参数用于控制是否输出详细信息,默认为False
     doctest.testmod(verbose=True)
     doctest.testfile('doctest.txt')
-
-
-
-
-
-
-
-
-

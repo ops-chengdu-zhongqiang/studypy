@@ -29,7 +29,7 @@ parser = argparse.ArgumentParser(prog='ttxs.py',
                                  usage='%(prog)s [options] 用法说明',
                                  description='A foo that bars 描述信息',
                                  epilog="And that's how you'd foo a bar 附加其他信息",
-                                  # parents=[parent_parser]
+                                 # parents=[parent_parser]
                                  )
 
 parser.add_argument('--foo',
@@ -48,22 +48,7 @@ parser.add_argument('-p', help='print 帮助信息')
 parser.add_argument('--fab', '-f', default=42, type=int)
 parser.add_argument('move', choices=['rock', 'paper', 'scissors'])
 # parser.parse_args(['--parent', '2', 'XXX'])
-parser.print_help()     # 打印信息
+parser.print_help()  # 打印信息
 args = parser.parse_args()
 
 print args
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

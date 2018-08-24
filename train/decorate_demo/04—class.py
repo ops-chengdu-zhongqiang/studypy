@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -11,7 +11,6 @@ Describe:
 
 
 class Foo(object):
-
     def __init__(self, func):
         print "__init__  function"
         self.func = func
@@ -21,9 +20,11 @@ class Foo(object):
         self.func()
         print "After..."
 
+
 @Foo
 def bar():
     print 'bar funtion()'
+
 
 bar()
 
@@ -31,22 +32,25 @@ print '#######################################'
 
 
 class Decorate(object):
-    def __init__(self,list1):
+    def __init__(self, list1):
         self.list1 = list1
 
     def __call__(self, func):
         if not self.list1:
-                print 'None ....'
-                raise Exception('LIST is  Null ')
+            print 'None ....'
+            raise Exception('LIST is  Null ')
         new_list = []
         for li in self.list1:
             li += 'a'
             new_list.append(li)
         print new_list
+
         def inner(*args, **kwargs):
             ret1, ret2 = func(*args, **kwargs)
             return ret1, ret2
+
         return inner
+
 
 @Decorate(list1=[])
 def f3(*args, **kwargs):
@@ -58,9 +62,3 @@ def f3(*args, **kwargs):
 # dict1['ttxs'] = 'goto'
 # c = f3(a, **dict1)
 # print c
-
-
-
-
-
-

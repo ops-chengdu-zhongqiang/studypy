@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -18,4 +18,3 @@ from celery import Celery
 ttxsgoto = Celery("cron")
 
 ttxsgoto.config_from_object('celery_app_cron.celeryconfig')
-

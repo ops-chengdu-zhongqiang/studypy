@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -8,7 +8,6 @@ Created on  17/4/13
 Describe:
 http://blog.jobbole.com/21351/
 '''
-
 
 
 ################类也是对象####################
@@ -21,6 +20,7 @@ http://blog.jobbole.com/21351/
 
 class ObjectCreator(object):
     pass
+
 
 my_obj = ObjectCreator()
 print my_obj
@@ -49,14 +49,17 @@ print type(ObjectCreator), type(ObjectCreator())
 # type 接受一个字典来为类定义属性
 
 
-Type_Class = type('Type_Class', (), {}) #返回一个类对象
+Type_Class = type('Type_Class', (), {})  # 返回一个类对象
 
 print Type_Class
 
+
 class Foo(object):
     bar = True
+
+
 # 两者等价
-Foo = type('Foo', (), {'bar':True})
+Foo = type('Foo', (), {'bar': True})
 
 print Foo.bar, Foo().bar
 
@@ -75,12 +78,13 @@ print Foo.__class__
 a = 12
 print a.__class__, a.__class__.__class__
 
+
 def Fun():
     pass
 
+
 print Fun.__class__
 print Fun.__class__.__class__.__class__
-
 
 ##########__metaclass__属性#############
 # class Foo(object):
@@ -91,16 +95,22 @@ print Fun.__class__.__class__.__class__
 元类的主要目的就是为了当创建类时能够自动地改变类,元类是类的类
 '''
 
+
 class Bar(object):
     pass
+
+
 '''
 以上代码说明:
 Python会在类的定义中寻找__metaclass__属性，如果找到了，Python就会用它来创建类Foo，
 如果没有找到，就会用内建的type来创建这个类
 '''
 
+
 class Foo(Bar):
     pass
+
+
 '''
 以上代码说明:
 Foo中有__metaclass__这个属性吗？如果有，Python会在内存中通过__metaclass__创建一个
@@ -140,10 +150,6 @@ class Foo(object):
     __metaclass__ = upper_attr
     bar = 'ttxsgoto'
 
+
 print '------------'
 print hasattr(Foo, 'bar')
-
-
-
-
-

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf-8
+# coding: utf-8
 
 '''
 Created on 2016年9月25日
@@ -16,15 +16,17 @@ import time
 logging.basicConfig(
     level=logging.DEBUG,
     format='(%(threadName)-10s)  %(message)s',
-    )
+)
+
 
 def worker():
     t = threading.currentThread()
-    pause = random.randint(1,5)
-    logging.debug("sleeping %s",pause)
+    pause = random.randint(1, 5)
+    logging.debug("sleeping %s", pause)
     time.sleep(pause)
     logging.debug("Ending")
     return
+
 
 for i in range(3):
     t = threading.Thread(target=worker)
@@ -32,10 +34,10 @@ for i in range(3):
     t.start()
 
 main_thread = threading.currentThread()
-print "main_thread: ----%s" %main_thread
+print "main_thread: ----%s" % main_thread
 for t in threading.enumerate():
     print t
     if t is main_thread:
         continue
-    logging.debug("Joining %s" , t.getName())
+    logging.debug("Joining %s", t.getName())
     t.join()

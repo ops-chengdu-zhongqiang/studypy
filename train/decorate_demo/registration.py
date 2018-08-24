@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding: utf_8
+# coding: utf_8
 '''
 __author__ = ‘zhongqiang‘
 
@@ -15,6 +15,7 @@ Describe:
 
 registry = []
 
+
 def register(func):
     print 'running register {}'.format(func)
     registry.append(func)
@@ -25,9 +26,11 @@ def register(func):
 def f1():
     print 'running  f1()'
 
+
 @register
 def f2():
     print 'running f2()'
+
 
 def f3():
     print 'running f3()'
@@ -41,18 +44,7 @@ def main():
     f2()
     f3()
 
+
 if __name__ == '__main__':  # 当为脚本运行时调用main()
     main()
-    print '----',main.__dict__
-
-
-
-
-
-
-
-
-
-
-
-
+    print '----', main.__dict__
